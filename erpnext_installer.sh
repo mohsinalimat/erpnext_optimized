@@ -98,7 +98,7 @@ DO_SSL=""             # yes/no
 EMAIL_ADDR=""
 
 ASSUME_YES="${ASSUME_YES:-0}"
-FRAPPE_USER="${FRAPPE_USER:-$SUDO_USER}"
+sed -i '101s|FRAPPE_USER="${FRAPPE_USER:-$SUDO_USER}"|FRAPPE_USER="${FRAPPE_USER:-${SUDO_USER:-${USER:-root}}}"|' erpnext_installer.sh
 FRAPPE_HOME=""
 DISTRO=""
 DISTRO_VER=""
